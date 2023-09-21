@@ -1,9 +1,9 @@
-package com.uptc.VueltaColombia.Entity.key;
+package com.uptc.VueltaColombia.entity.key;
 
 import java.io.Serializable;
 
-import com.uptc.VueltaColombia.Entity.Athlete;
-import com.uptc.VueltaColombia.Entity.EditionTeam;
+import com.uptc.VueltaColombia.entity.Athlete;
+import com.uptc.VueltaColombia.entity.EditionTeam;
 
 public class AthleteTeamPK implements Serializable {
     private EditionTeam editionTeam;

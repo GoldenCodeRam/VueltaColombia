@@ -1,4 +1,4 @@
-package com.uptc.VueltaColombia.Entity;
+package com.uptc.VueltaColombia.entity;
 
 import jakarta.persistence.*;
 import java.util.Date;

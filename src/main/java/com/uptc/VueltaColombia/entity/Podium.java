@@ -1,6 +1,6 @@
-package com.uptc.VueltaColombia.Entity;
+package com.uptc.VueltaColombia.entity;
 
-import com.uptc.VueltaColombia.Entity.key.PodiumPK;
+import com.uptc.VueltaColombia.entity.key.PodiumPK;
 import jakarta.persistence.*;
 import java.sql.Timestamp;
 

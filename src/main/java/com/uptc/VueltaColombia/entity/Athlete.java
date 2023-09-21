@@ -1,4 +1,4 @@
-package com.uptc.VueltaColombia.Entity;
+package com.uptc.VueltaColombia.entity;
 
 import jakarta.persistence.*;
 
@@ -9,8 +9,7 @@ import java.util.List;
 @Table(name = "Athlete")
 public class Athlete {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "athlete_id_seq")
-    @SequenceGenerator(name = "athlete_id_seq", sequenceName = "athlete_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

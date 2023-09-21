@@ -1,7 +1,7 @@
-package com.uptc.VueltaColombia.Entity.key;
+package com.uptc.VueltaColombia.entity.key;
 
-import com.uptc.VueltaColombia.Entity.Athlete;
-import com.uptc.VueltaColombia.Entity.Stage;
+import com.uptc.VueltaColombia.entity.Athlete;
+import com.uptc.VueltaColombia.entity.Stage;
 
 import java.io.Serializable;
 
