@@ -2,10 +2,11 @@ package com.uptc.VueltaColombia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class VueltaColombiaApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(VueltaColombiaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(VueltaColombiaApplication.class, args);
+    }
 }

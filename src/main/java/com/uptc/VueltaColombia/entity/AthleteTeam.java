@@ -1,5 +1,6 @@
 package com.uptc.VueltaColombia.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uptc.VueltaColombia.entity.key.AthleteTeamPK;
 import jakarta.persistence.*;
 

@@ -1,6 +1,7 @@
 package com.uptc.VueltaColombia.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -9,8 +10,7 @@ import java.util.List;
 @Table(name = "Edition_Team")
 public class EditionTeam {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "edition_team_id_seq")
-    @SequenceGenerator(name = "edition_team_id_seq", sequenceName = "edition_team_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -27,9 +27,16 @@ public class EditionTeam {
     private Sponsor sponsor;
 
     @OneToMany(mappedBy = "editionTeam", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<AthleteTeam> athleteTeams;
 
     public EditionTeam() {
+    }
+
+    public EditionTeam(Edition edition, Team team, Sponsor sponsor) {
+        this.edition = edition;
+        this.team = team;
+        this.sponsor = sponsor;
     }
 
     public Long getId() {

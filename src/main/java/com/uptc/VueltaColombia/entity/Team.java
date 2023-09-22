@@ -1,6 +1,8 @@
 package com.uptc.VueltaColombia.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
 import java.util.List;
@@ -9,28 +11,28 @@ import java.util.List;
 @Table(name = "Team")
 public class Team {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "team_id_seq")
-    @SequenceGenerator(name = "team_id_seq", sequenceName = "team_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
     @Column(name = "name")
+    @NotNull
     private String name;
 
     @Column(name = "foundation_date")
     private Date foundationDate;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<EditionTeam> editionTeams;
 
     public Team() {
     }
 
-    public Team(Long id, String name, Date foundationDate, List<EditionTeam> editionTeams) {
+    public Team(Long id, String name, Date foundationDate) {
         this.id = id;
         this.name = name;
         this.foundationDate = foundationDate;
-        this.editionTeams = editionTeams;
     }
 
     public Long getId() {

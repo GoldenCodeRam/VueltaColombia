@@ -1,5 +1,6 @@
 package com.uptc.VueltaColombia.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -9,8 +10,6 @@ import java.util.List;
 @Table(name = "Sponsor")
 public class Sponsor {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sponsor_nit_seq")
-    @SequenceGenerator(name = "sponsor_nit_seq", sequenceName = "sponsor_nit_seq", allocationSize = 1)
     @Column(name = "NIT")
     private Long nit;
 
@@ -18,6 +17,7 @@ public class Sponsor {
     private String name;
 
     @OneToMany(mappedBy = "sponsor", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<EditionTeam> editionTeams;
 
     public Sponsor() {

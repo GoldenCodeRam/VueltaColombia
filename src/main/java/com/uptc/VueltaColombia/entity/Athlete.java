@@ -1,6 +1,10 @@
 package com.uptc.VueltaColombia.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
 
 import java.util.Date;
 import java.util.List;
@@ -23,11 +27,12 @@ public class Athlete {
     private Date birthDate;
 
     @OneToMany(mappedBy = "athlete", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<AthleteTeam> athleteTeams;
 
     @OneToMany(mappedBy = "athlete", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Podium> athletePodiums;
-
 
     public Athlete() {
     }

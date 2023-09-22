@@ -1,5 +1,7 @@
 package com.uptc.VueltaColombia.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.uptc.VueltaColombia.entity.key.PodiumPK;
 import jakarta.persistence.*;
 import java.sql.Timestamp;
@@ -32,6 +34,22 @@ public class Podium {
         this.athlete = athlete;
         this.position = position;
         this.time = time;
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public Athlete getAthlete() {
+        return athlete;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public Timestamp getTime() {
+        return time;
     }
 
     @Override

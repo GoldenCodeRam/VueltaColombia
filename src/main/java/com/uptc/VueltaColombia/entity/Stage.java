@@ -1,5 +1,8 @@
 package com.uptc.VueltaColombia.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -9,8 +12,7 @@ import java.util.List;
 @Table(name = "Stage")
 public class Stage {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stage_id_seq")
-    @SequenceGenerator(name = "stage_id_seq", sequenceName = "stage_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "origin")
@@ -27,22 +29,51 @@ public class Stage {
 
     @ManyToOne
     @JoinColumn(name = "edition_id")
+    @JsonIgnore
     private Edition edition;
 
     @OneToMany(mappedBy = "stage", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Podium> podiums;
 
     public Stage() {
     }
 
-    public Stage(Long id, String origin, String destination, double length, String stageType, Edition edition, List<Podium> podiums) {
+    public Stage(Long id, String origin, String destination, double length, String stageType, Edition edition) {
         this.id = id;
         this.origin = origin;
         this.destination = destination;
         this.length = length;
         this.stageType = stageType;
         this.edition = edition;
-        this.podiums = podiums;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public String getStageType() {
+        return stageType;
+    }
+
+    public Edition getEdition() {
+        return edition;
+    }
+
+    public List<Podium> getPodiums() {
+        return podiums;
     }
 
     @Override
